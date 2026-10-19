@@ -29,85 +29,62 @@ svg.svg-defs{display:block!important;position:absolute!important;width:0!importa
 }
 
 
-/* SHAKSTORY — PALETA COMERCIAL OFICIAL
-   Camada de cores sobre a versão visual restaurada f855f56 / 2557c1d.
-   Não alterar grids, tipografia, dimensões, conteúdo ou mockups. */
+/* TESTE DE CORES — referência visual: capturas mobile Atticus compartilhadas pelo proprietário.
+   Preserva o HTML, grids, tipografia e ilustrações da restauração oficial 2557c1d.
+   Prioridade: legibilidade (texto escuro sobre fundos claros, sem neblina verde). */
 :root{
-  --bg-main:#EEF5F3;
-  --bg-card:#FFFFFF;
-  --bg-dark:#114B4B;
-  --text-main:#163535;
-  --text-soft:#5F7672;
-  --text-light:#F5FBF9;
-  --border-soft:#D8E5E1;
-  --cta-primary:#53C3A6;
-  --cta-primary-hover:#43AE92;
-  --cta-secondary:#11806A;
-  --cta-secondary-hover:#0E6C5A;
-  --accent-editorial:#D8C39A;
-  --accent-highlight:#E9F26B;
-  --accent-alert:#E35D4F;
-  --ink:var(--text-main);
-  --muted:var(--text-soft);
-  --cream:var(--bg-main);
-  --line:var(--border-soft);
-  --dark:var(--bg-dark);
-  --green:var(--cta-secondary);
-  --bright:var(--cta-primary-hover);
-  --mint:#DCF3EA;
+ --ink:#202A32;--muted:#47555E;--cream:#F1FAFC;--line:#D7E5EB;
+ --green:#157D63;--bright:#3BAA86;--mint:#E4F7F2;--dark:#224C70;
+ --atticus-sky:#F1FAFC;--atticus-blue:#3568B0;--atticus-mint:#57BD99;
+ --atticus-ink:#202A32;
 }
-body{background:var(--bg-main);color:var(--text-main)}
-.site-header{background:rgba(238,245,243,.97);border-bottom-color:var(--border-soft)}
-.announcement{background:#103F41;color:#EDF8F4}
+html{background:#F1FAFC}
+body{background:#F1FAFC;color:#202A32}
+p,.hero-lead,.section-heading p,.audience-card p,.feature-card p,.step p,.price-card p,.faq-items details p,.preview-grid p{color:#46545D}
+.site-header{background:rgba(250,253,254,.98);border-color:#D9E5EA}
+.announcement{background:#3568B0;color:#FFF}
 .announcement a{color:#FFF}
-.eyebrow,.plan-label,.feature-arrow,.text-link{color:#0F7668}
-.hero{background:var(--bg-main)}
-.hero h1 em{color:#11806A}
-.audience-band,.preview-section,.faq-section{background:#E6F0EC}
-.feature-section,.pricing-section{background:var(--bg-main)}
-.audience-card,.feature-card,.step,.price-card{background:var(--bg-card);border-color:var(--border-soft)}
-.nav-cta,.btn-primary{background:var(--cta-primary);color:#103D37;box-shadow:0 10px 25px rgba(17,128,106,.16)}
-.nav-cta:hover,.btn-primary:hover{background:var(--cta-primary-hover);color:#103D37}
-.btn-plan{background:var(--cta-secondary);color:#FFF}
-.btn-plan:hover{background:var(--cta-secondary-hover)}
-.btn-outline{background:#FFF;color:#114B4B;border-color:#98BDB2}
-.btn-outline:hover{background:#F5FBF9}
-.spotlight{background:#114B4B}
-.spotlight h2,.final-cta h2{color:var(--text-light)}
-.spotlight h2 em,.final-cta h2 em{color:#BEE9DD}
-.eyebrow.light{color:#BEE9DD}
-.spotlight-points .icon,.spotlight-points span{color:#F5FBF9}
-.price-card.featured{border-color:var(--cta-secondary);box-shadow:0 20px 55px rgba(17,128,106,.12)}
-.popular{background:var(--accent-editorial);color:#263D36}
-.price-card li .icon,.faq-items summary:after{color:#11806A}
-.final-cta{background:radial-gradient(circle at 18% 12%,#155959,#0E3D3D 68%)}
-.btn-white{background:#FFF;color:#114B4B}
-.btn-dark-outline{border-color:#BEE9DD;color:#FFF}
-.site-footer{background:#0C3235}
-.feature-icon{background:#E0F4EA;color:#0E6C5A}
-.brand-mark{background:#114B4B}
-::selection{background:var(--accent-highlight);color:#163535}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#B48A42}
-
-
-/* Ajuste de contraste comercial v2 — base visual 2557c1d preservada */
-.hero{background:linear-gradient(160deg,#E5F5F1 0%,#EEF8F6 67%,#F7FBF9 100%)}
-.hero .btn-primary,.nav-cta{background:#53C3A6;color:#103C36}
-.hero .btn-primary:hover,.nav-cta:hover{background:#43AE92;color:#103C36}
-.hero .btn-outline{background:#FFF;border:2px solid #53B7A0;color:#114B4B}
-.audience-band,.preview-section,.faq-section{background:#E0F1ED}
-.feature-section{background:#F7FBF9}
-.pricing-section{background:#EAF6F2}
-.price-card{background:#FFF}
-.price-card.featured{border:2px solid #15927D;background:#F4FCF8}
-.price-card .btn-plan{background:#087869;color:#FFF}
-.price-card .btn-plan:hover{background:#086757}
-.price-card.featured .btn-plan{background:#4BBC9E;color:#0B3430}
-.price-card.featured .btn-plan:hover{background:#35A98B}
-.popular{background:#E6E96A;color:#193D37}
-.final-cta .btn-white{background:#53C3A6;color:#103C36}
-.final-cta .btn-white:hover{background:#43AE92}
-@media(max-width:590px){
- .hero{background:linear-gradient(160deg,#E5F5F1,#EEF8F6)}
- .hero .btn-primary,.price-card .btn-plan{box-shadow:0 6px 20px rgba(16,91,79,.16)}
+.brand-mark{background:#234C73}
+.hero{background:#F1FAFC}
+.hero h1,.section-heading h2,.faq-layout h2,.price-card h3,.audience-card h3,.feature-card h3{color:#202A32}
+.hero h1 em{color:#236FA0}
+.eyebrow,.plan-label,.feature-arrow,.text-link{color:#185E87}
+.hero .btn-primary,.nav-cta,.btn-primary{background:#57BD99;color:#122A31;box-shadow:0 7px 20px rgba(19,80,78,.12)}
+.hero .btn-primary:hover,.nav-cta:hover,.btn-primary:hover{background:#43A988;color:#10262A}
+.hero .btn-outline,.btn-outline{background:#FFF;border:1.5px solid #A7C4D0;color:#203B4C}
+.hero .btn-outline:hover,.btn-outline:hover{background:#E8F5F9}
+.audience-band,.preview-section,.faq-section{background:#EAF5FA}
+.feature-section,.pricing-section{background:#F8FCFD}
+.audience-card,.feature-card,.step,.price-card{background:#FFF;border-color:#D8E4E9}
+.feature-icon{background:#E2F3F5;color:#245D87}
+.feature-icon.peach{background:#FFF0E5;color:#A65D36}
+.feature-icon.lavender{background:#EFECF9;color:#705AAB}
+.feature-icon.blue{background:#E4EFFC;color:#3568B0}
+.spotlight{background:#254F75}
+.spotlight h2,.final-cta h2{color:#FFF}
+.spotlight h2 em,.final-cta h2 em{color:#ADEBD6}
+.spotlight-copy>p,.spotlight-points,.spotlight-points span{color:#F0F8FC}
+.spotlight-points .icon,.eyebrow.light{color:#BBF2DB}
+.spotlight .btn-light{background:#57BD99;color:#122A31}
+.price-card.featured{background:#FFF;border:2px solid #3BAA86;box-shadow:0 15px 40px rgba(27,79,104,.11)}
+.popular{background:#EAF066;color:#202A32}
+.price-card .btn-plan,.btn-plan{background:#16866B;color:#FFF}
+.price-card .btn-plan:hover,.btn-plan:hover{background:#106E59;color:#FFF}
+.price-card.featured .btn-plan{background:#57BD99;color:#112E34}
+.price-card.featured .btn-plan:hover{background:#43A988}
+.price-card li .icon,.faq-items summary:after{color:#197D68}
+.faq-items summary{color:#202A32}
+.final-cta{background:linear-gradient(150deg,#3568B0,#28568B)}
+.final-cta .btn-white{background:#57BD99;color:#122A31}
+.final-cta .btn-white:hover{background:#43A988}
+.final-cta .btn-dark-outline{border-color:#C8E5F7;color:#FFF}
+.site-footer{background:#3568B0;color:#FFF}
+.footer-main p,.footer-links a,.footer-bottom{color:#E4EDF9}
+.footer-brand .brand-mark{background:#244C85}
+::selection{background:#EAF066;color:#202A32}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #DAAF42;outline-offset:3px}
+/* A referência usa alto contraste: preservar o mesmo padrão em telas pequenas. */
+@media(max-width:850px){
+ .main-nav{background:#F9FCFE;border-bottom-color:#D7E5EB}
+ .hero{background:#F1FAFC}
 }
