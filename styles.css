@@ -88,3 +88,48 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #DA
  .main-nav{background:#F9FCFE;border-bottom-color:#D7E5EB}
  .hero{background:#F1FAFC}
 }
+
+
+/* SHAKSTORY — CTA GOLD: todos os botões de conversão em amarelo dourado.
+   Preserva a composição visual 2557c1d e os fundos azul-claros. */
+:root{
+ --cta-gold:#F2C94C;
+ --cta-gold-hover:#E5B93C;
+ --cta-gold-active:#D7AA2C;
+ --cta-gold-text:#182B35;
+}
+.nav-cta,
+.hero .btn-primary,
+.btn-primary,
+.spotlight .btn-light,
+.price-card .btn-plan,
+.price-card.featured .btn-plan,
+.btn-plan,
+.final-cta .btn-white{
+ background:var(--cta-gold);
+ color:var(--cta-gold-text);
+ border:1px solid #D4A92F;
+ box-shadow:0 7px 22px rgba(112,84,16,.16);
+}
+.nav-cta:hover,
+.hero .btn-primary:hover,
+.btn-primary:hover,
+.spotlight .btn-light:hover,
+.price-card .btn-plan:hover,
+.price-card.featured .btn-plan:hover,
+.btn-plan:hover,
+.final-cta .btn-white:hover{
+ background:var(--cta-gold-hover);
+ color:var(--cta-gold-text);
+ border-color:#B98E22;
+}
+.nav-cta:active,.btn-primary:active,.btn-plan:active,
+.spotlight .btn-light:active,.final-cta .btn-white:active{
+ background:var(--cta-gold-active);
+}
+.price-card.featured{border-color:#D4A92F;box-shadow:0 15px 40px rgba(112,84,16,.11)}
+.popular{background:#F7D969;color:#182B35}
+.hero .btn-outline,.btn-outline{border-color:#8FAFC2;background:#FFF;color:#203B4C}
+.hero .btn-outline:hover,.btn-outline:hover{background:#E8F5F9;color:#203B4C}
+.final-cta .btn-dark-outline{border-color:#DBE8F1;color:#FFF;background:transparent}
+.final-cta .btn-dark-outline:hover{background:rgba(255,255,255,.12)}
