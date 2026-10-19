@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -22,116 +22,28 @@ jobs:
     steps:
       - name: Obter arquivos
         uses: actions/checkout@v4
-
-      - name: Extrair e verificar as imagens do carrossel
+      - name: Verificar banner com imagens PNG estaticas
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import struct
-          import zipfile
-
-          archive = Path("shakstory-banner-imagens-para-github.zip")
-          names = ("evolucao-pena.png", "evolucao-maquina.png", "evolucao-celular.png")
-          outdir = Path("assets")
-          outdir.mkdir(exist_ok=True)
-          if not archive.is_file():
-              raise SystemExit("Arquivo ZIP das imagens nao encontrado")
-          with zipfile.ZipFile(archive) as z:
-              for name in names:
-                  source = f"assets/{name}"
-                  data = z.read(source)
-                  if len(data) < 33 or data[:8] != b"\x89PNG\r\n\x1a\n":
-                      raise SystemExit(f"PNG invalido: {source}")
-                  width, height = struct.unpack(">II", data[16:24])
-                  if not (300 <= width <= 2400 and 300 <= height <= 3200):
-                      raise SystemExit(f"Dimensoes inesperadas: {source}")
-                  if data[25] != 6:
-                      raise SystemExit(f"Imagem sem canal alpha RGBA: {source}")
-                  (outdir / name).write_bytes(data)
-                  print(f"Imagem OK: {source} ({width}x{height}, {len(data)} bytes)")
+          html = Path("index.html").read_text(encoding="utf-8")
+          for label in ("pena", "maquina", "celular"):
+              name = f"assets/evolucao-{label}.png"
+              data = Path(name).read_bytes()
+              assert data.startswith(b"\x89PNG\r\n\x1a\n"), f"PNG invalido: {name}"
+              assert f'src="{name}"' in html, f"HTML nao aponta para {name}"
+          start = html.index('<section class="writing-evolution"')
+          end = html.index('</section>', start)
+          assert '.gif' not in html[start:end].lower(), "Banner ainda faz referencia a GIF"
+          print("Banner estatico PNG validado")
           PY
-
-      - name: Guardar imagens organizadas na branch turbo
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/evolucao-pena.png assets/evolucao-maquina.png assets/evolucao-celular.png
-          if ! git diff --cached --quiet; then
-            git commit -m "assets(site): extrair PNGs transparentes do banner historico"
-            git push origin HEAD:turbo
-          fi
-
-      - name: Extrair animacoes originais enviadas pelo autor
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          from zipfile import ZipFile
-
-          bundle = Path("shakstory-gifs-originais-para-github.zip")
-          expected = (
-              "assets/evolucao-pena.gif",
-              "assets/evolucao-maquina.gif",
-              "assets/evolucao-celular.gif",
-          )
-          if not bundle.exists():
-              print("GIFs ainda nao foram enviados ao repositorio; mantendo fallback PNG.")
-          else:
-              with ZipFile(bundle) as archive:
-                  for name in expected:
-                      data = archive.read(name)
-                      if not data.startswith((b"GIF89a", b"GIF87a")) or len(data) < 100:
-                          raise SystemExit(f"GIF invalido: {name}")
-                      dest = Path(name)
-                      dest.parent.mkdir(parents=True, exist_ok=True)
-                      dest.write_bytes(data)
-                      print(f"GIF restaurado: {name}, {len(data)} bytes")
-          PY
-
-      - name: Versionar animacoes extraidas
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f assets/evolucao-pena.gif assets/evolucao-maquina.gif assets/evolucao-celular.gif 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m "assets(site): adicionar os GIFs originais do carrossel"
-            git push origin HEAD:turbo
-          fi
-
-      - name: Publicar GIFs com nomes novos e validar conteudo
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import hashlib
-          files = ("pena", "maquina", "celular")
-          for kind in files:
-              source = Path(f"assets/evolucao-{kind}.gif")
-              dest = Path(f"assets/evolucao-{kind}-final-20261019.gif")
-              if not source.is_file():
-                  raise SystemExit(f"FALHA: GIF original ausente: {source}")
-              data = source.read_bytes()
-              if not data.startswith((b"GIF89a", b"GIF87a")):
-                  raise SystemExit(f"FALHA: formato incorreto: {source}")
-              if len(data) < 100000:
-                  raise SystemExit(f"FALHA: GIF curto demais: {source}")
-              dest.write_bytes(data)
-              if source.read_bytes() != dest.read_bytes():
-                  raise SystemExit(f"FALHA: copia incorreta: {dest}")
-              print(f"VALIDADO {dest}: {len(data)} bytes, SHA256={hashlib.sha256(data).hexdigest()}")
-          PY
-
       - name: Configurar Pages
         uses: actions/configure-pages@v5
-
       - name: Enviar artefato estatico
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4
