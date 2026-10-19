@@ -10,7 +10,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: commercial-pages
+  group: commercial-pages-png-static
   cancel-in-progress: true
 
 jobs:
