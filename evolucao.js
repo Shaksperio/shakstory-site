@@ -13,30 +13,20 @@
   let writingTimer = null;
   let hovering = false;
 
-  // Use the visitor-provided moving images; retain our own PNGs as a fallback
-  // when a third-party host blocks hotlinking or motion is disabled.
+  // GIFs originais hospedados no proprio GitHub Pages. Não substituir por
+  // PNGs antigos por configuração de movimento reduzido ou foco no celular.
+  // A preferência por movimento reduzido continua desativando as animações
+  // do texto e a passagem automática dos slides.
   for (const slide of slides) {
     const img = slide.querySelector('.evolution-person img');
     const wrapper = slide.querySelector('.evolution-person');
     if (!img || !wrapper) continue;
-    const animated = img.dataset.animatedSrc;
-    const still = img.dataset.stillSrc;
-    const updateMotion = () => {
-      const desired = reduce.matches ? still : animated;
-      if (desired && img.getAttribute('src') !== desired) {
-        wrapper.classList.remove('has-error');
-        img.src = desired;
-      }
-    };
+    img.addEventListener('load', () => wrapper.classList.remove('has-error'));
     img.addEventListener('error', () => {
-      if (still && img.getAttribute('src') !== still) {
-        img.src = still;
-      } else {
-        wrapper.classList.add('has-error');
-      }
+      wrapper.classList.add('has-error');
+      console.warn('Shakstory: GIF do carrossel não foi carregado:', img.currentSrc);
     });
-    updateMotion();
-    reduce.addEventListener?.('change', updateMotion);
+    if (img.complete && img.naturalWidth === 0) wrapper.classList.add('has-error');
   }
   function stopWriting() {
     if (writingTimer !== null) window.clearTimeout(writingTimer);
