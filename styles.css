@@ -27,3 +27,64 @@ svg.svg-defs{display:block!important;position:absolute!important;width:0!importa
  .float-card{max-width:48%}
  .spotlight-grid,.preview-grid,.faq-layout{min-width:0}
 }
+
+
+/* SHAKSTORY — PALETA COMERCIAL OFICIAL
+   Camada de cores sobre a versão visual restaurada f855f56 / 2557c1d.
+   Não alterar grids, tipografia, dimensões, conteúdo ou mockups. */
+:root{
+  --bg-main:#EEF5F3;
+  --bg-card:#FFFFFF;
+  --bg-dark:#114B4B;
+  --text-main:#163535;
+  --text-soft:#5F7672;
+  --text-light:#F5FBF9;
+  --border-soft:#D8E5E1;
+  --cta-primary:#53C3A6;
+  --cta-primary-hover:#43AE92;
+  --cta-secondary:#11806A;
+  --cta-secondary-hover:#0E6C5A;
+  --accent-editorial:#D8C39A;
+  --accent-highlight:#E9F26B;
+  --accent-alert:#E35D4F;
+  --ink:var(--text-main);
+  --muted:var(--text-soft);
+  --cream:var(--bg-main);
+  --line:var(--border-soft);
+  --dark:var(--bg-dark);
+  --green:var(--cta-secondary);
+  --bright:var(--cta-primary-hover);
+  --mint:#DCF3EA;
+}
+body{background:var(--bg-main);color:var(--text-main)}
+.site-header{background:rgba(238,245,243,.97);border-bottom-color:var(--border-soft)}
+.announcement{background:#103F41;color:#EDF8F4}
+.announcement a{color:#FFF}
+.eyebrow,.plan-label,.feature-arrow,.text-link{color:#0F7668}
+.hero{background:var(--bg-main)}
+.hero h1 em{color:#11806A}
+.audience-band,.preview-section,.faq-section{background:#E6F0EC}
+.feature-section,.pricing-section{background:var(--bg-main)}
+.audience-card,.feature-card,.step,.price-card{background:var(--bg-card);border-color:var(--border-soft)}
+.nav-cta,.btn-primary{background:var(--cta-primary);color:#103D37;box-shadow:0 10px 25px rgba(17,128,106,.16)}
+.nav-cta:hover,.btn-primary:hover{background:var(--cta-primary-hover);color:#103D37}
+.btn-plan{background:var(--cta-secondary);color:#FFF}
+.btn-plan:hover{background:var(--cta-secondary-hover)}
+.btn-outline{background:#FFF;color:#114B4B;border-color:#98BDB2}
+.btn-outline:hover{background:#F5FBF9}
+.spotlight{background:#114B4B}
+.spotlight h2,.final-cta h2{color:var(--text-light)}
+.spotlight h2 em,.final-cta h2 em{color:#BEE9DD}
+.eyebrow.light{color:#BEE9DD}
+.spotlight-points .icon,.spotlight-points span{color:#F5FBF9}
+.price-card.featured{border-color:var(--cta-secondary);box-shadow:0 20px 55px rgba(17,128,106,.12)}
+.popular{background:var(--accent-editorial);color:#263D36}
+.price-card li .icon,.faq-items summary:after{color:#11806A}
+.final-cta{background:radial-gradient(circle at 18% 12%,#155959,#0E3D3D 68%)}
+.btn-white{background:#FFF;color:#114B4B}
+.btn-dark-outline{border-color:#BEE9DD;color:#FFF}
+.site-footer{background:#0C3235}
+.feature-icon{background:#E0F4EA;color:#0E6C5A}
+.brand-mark{background:#114B4B}
+::selection{background:var(--accent-highlight);color:#163535}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#B48A42}
