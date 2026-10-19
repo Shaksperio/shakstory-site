@@ -13,12 +13,30 @@
   let writingTimer = null;
   let hovering = false;
 
+  // Use the visitor-provided moving images; retain our own PNGs as a fallback
+  // when a third-party host blocks hotlinking or motion is disabled.
   for (const slide of slides) {
     const img = slide.querySelector('.evolution-person img');
     const wrapper = slide.querySelector('.evolution-person');
     if (!img || !wrapper) continue;
-    img.addEventListener('error', () => wrapper.classList.add('has-error'));
-    if (img.complete && img.naturalWidth === 0) wrapper.classList.add('has-error');
+    const animated = img.dataset.animatedSrc;
+    const still = img.dataset.stillSrc;
+    const updateMotion = () => {
+      const desired = reduce.matches ? still : animated;
+      if (desired && img.getAttribute('src') !== desired) {
+        wrapper.classList.remove('has-error');
+        img.src = desired;
+      }
+    };
+    img.addEventListener('error', () => {
+      if (still && img.getAttribute('src') !== still) {
+        img.src = still;
+      } else {
+        wrapper.classList.add('has-error');
+      }
+    });
+    updateMotion();
+    reduce.addEventListener?.('change', updateMotion);
   }
   function stopWriting() {
     if (writingTimer !== null) window.clearTimeout(writingTimer);
