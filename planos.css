@@ -76,3 +76,8 @@
 @media(max-width:740px){
  .plan-hero .actions .plan-primary-cta,.plan-hero .actions .plan-discover{width:100%;min-height:57px;white-space:normal;text-align:center}
 }
+
+/* Rodape com navegacao institucional nos planos */
+.plan-legal-links{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px 17px}
+.plan-legal-links a{font-size:.83rem;white-space:nowrap}
+@media(max-width:740px){.plan-legal-links{justify-content:center}.plan-footer .plan-container{gap:22px}}
