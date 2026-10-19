@@ -1,0 +1,31 @@
+/* Carrossel editorial — Evolução da escrita Shakstory */
+.writing-evolution{position:relative;isolation:isolate;background:linear-gradient(115deg,#f7f9ff 0%,#e5eeff 65%,#eaf1ff 100%);overflow:hidden;border-bottom:1px solid #d6e3f6}
+.writing-evolution:before{content:"";position:absolute;inset:auto -14% -90px;z-index:-1;height:210px;background:radial-gradient(ellipse,#c8ddfd,transparent 70%);pointer-events:none}
+.evolution-inner{position:relative;width:min(1190px,calc(100% - 40px));margin:auto}
+.evolution-slides{position:relative;min-height:470px}
+.evolution-slide{display:grid;grid-template-columns:minmax(0,43%) minmax(0,57%);min-height:470px;align-items:end;gap:25px;position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(16px);transition:opacity .55s ease,transform .55s ease,visibility 0s linear .55s}
+.evolution-slide.is-current{position:relative;opacity:1;visibility:visible;transform:none;transition:opacity .55s ease,transform .55s ease}
+.evolution-person{align-self:end;height:100%;display:flex;align-items:end;justify-content:center;min-width:0}
+.evolution-person img{display:block;max-width:100%;height:min(450px,43vw);width:auto;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 16px 20px #12274c26)}
+.evolution-person .image-fallback{display:none;align-items:center;justify-content:center;height:280px;font-size:6rem;opacity:.5}
+.evolution-person.has-error img{display:none}.evolution-person.has-error .image-fallback{display:flex}
+.evolution-content{align-self:center;padding:50px 10px 48px 14px;min-width:0}
+.evolution-era{display:inline-flex;letter-spacing:.18em;text-transform:uppercase;color:#275e9d;font-size:.75rem;font-weight:800;margin-bottom:14px}
+.evolution-content h2{font-size:clamp(2rem,3.75vw,3.8rem);line-height:1.15;color:#142544;margin:0 0 16px}
+.evolution-content p{font-size:1.03rem;color:#4a607d;max-width:590px;margin:0 0 25px}
+.evolution-writing{display:flex;align-items:flex-start;min-height:120px;border-left:4px solid #e4b934;background:#ffffffbd;box-shadow:0 15px 35px #1e467116;border-radius:0 16px 16px 0;padding:24px 28px;color:#182b45}
+.evolution-written{display:block;font-size:clamp(1.1rem,2.1vw,1.65rem);line-height:1.5;max-width:550px;overflow-wrap:anywhere}
+.evolution-slide[data-effect="pen"] .evolution-written{font-family:"Brush Script MT","Segoe Script",cursive;font-style:italic;color:#162d69;font-size:clamp(1.4rem,2.8vw,2.1rem)}
+.evolution-slide[data-effect="typewriter"] .evolution-written{font-family:"Courier New",Courier,monospace;letter-spacing:.015em}
+.evolution-slide[data-effect="phone"] .evolution-written{font-family:system-ui,-apple-system,sans-serif;font-size:clamp(1.05rem,2vw,1.4rem)}
+.evolution-caret{display:inline-block;width:2px;height:1.25em;margin-left:3px;vertical-align:-.2em;background:#e4ae18;animation:evolution-blink .8s steps(1) infinite}
+@keyframes evolution-blink{50%{opacity:0}}
+.evolution-controls{display:flex;align-items:center;justify-content:center;gap:13px;padding:13px 0 22px}
+.evolution-control{border:1px solid #a9bbd5;background:#fff;color:#1d4579;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;font-size:1.25rem;cursor:pointer}
+.evolution-control:hover{background:#e1ebfc}
+.evolution-dots{display:flex;gap:9px}
+.evolution-dot{border:0;background:#9eb5d3;width:10px;height:10px;border-radius:99px;cursor:pointer;padding:0;transition:width .25s,background .25s}
+.evolution-dot.is-current{width:34px;background:#dca60c}
+.evolution-control:focus-visible,.evolution-dot:focus-visible{outline:3px solid #ffcd20;outline-offset:4px}
+@media(max-width:780px){.evolution-slides{min-height:0}.evolution-slide{grid-template-columns:minmax(0,1fr);gap:0;align-items:start;min-height:0}.evolution-slide.is-current{display:flex;flex-direction:column}.evolution-person{height:250px;order:2;width:100%}.evolution-person img{height:250px;max-width:95%}.evolution-content{order:1;padding:37px 5px 16px;width:100%;text-align:center}.evolution-content h2{font-size:clamp(1.75rem,7vw,2.6rem)}.evolution-content p{font-size:.95rem;margin-inline:auto;margin-bottom:17px}.evolution-writing{text-align:left;min-height:87px;padding:16px 18px}.evolution-written{font-size:1.12rem!important}.evolution-slide[data-effect="pen"] .evolution-written{font-size:1.5rem!important}.evolution-controls{padding:12px 0 22px}.evolution-era{font-size:.68rem}}
+@media(prefers-reduced-motion:reduce){.evolution-slide,.evolution-dot{transition:none}.evolution-caret{animation:none}}
