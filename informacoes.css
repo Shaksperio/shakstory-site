@@ -1,0 +1,27 @@
+/* Paginas informativas do site comercial Shakstory */
+.info-hero{background:linear-gradient(145deg,#101D52 0%,#27559A 100%);color:#fff;padding:75px 0 83px}
+.info-shell{width:min(980px,calc(100% - 38px));margin:0 auto}
+.info-kicker{font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffe34b;font-size:.77rem}
+.info-hero h1{font-family:'Playfair Display',Georgia,serif;color:#fff;font-size:clamp(2.7rem,5.8vw,4.7rem);margin:18px 0 16px}
+.info-hero p{max-width:720px;color:#ecf2ff;font-size:1.12rem;line-height:1.8;margin:0}
+.info-content{background:#f7f9ff;padding:65px 0 88px}
+.info-paper{background:#fff;border:1px solid #e1e8f5;border-radius:22px;box-shadow:0 16px 48px #13275512;padding:clamp(24px,5vw,57px);max-width:920px;margin:auto}
+.info-paper h2{font-size:clamp(1.3rem,3vw,1.75rem);color:#162953;margin:37px 0 12px}
+.info-paper h2:first-child{margin-top:0}
+.info-paper p,.info-paper li{color:#455571;font-size:.98rem;line-height:1.9}
+.info-paper ul{padding-left:22px}
+.info-paper a{color:#235aab;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+.info-meta{font-size:.85rem!important;color:#65738b!important}
+.info-notice{border-left:4px solid #e9b715;padding:16px 19px;background:#fffae8;border-radius:0 12px 12px 0;margin:27px 0;color:#34435e}
+.info-notice p{margin:0}
+.info-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:33px}
+.info-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;padding:10px 22px;text-decoration:none;font-weight:800}
+.info-actions .info-primary{background:linear-gradient(180deg,#ffe936,#ffb914);color:#1d293a;box-shadow:0 6px 16px #bc841f36}
+.info-actions .info-secondary{border:1px solid #aabddc;color:#204477;background:white}
+.info-footer{background:#101D52;color:#f0f4ff;padding:34px 0}
+.info-footer .info-shell{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.info-footer nav{display:flex;flex-wrap:wrap;gap:9px 20px}
+.info-footer a{color:#f0f4ff;font-size:.85rem;text-decoration:underline;text-underline-offset:3px}
+.info-footer small{color:#bfcced}
+.info-main-nav a{white-space:nowrap}
+@media(max-width:800px){.info-hero{padding:53px 0 65px}.info-content{padding:36px 0 56px}.info-main-nav{gap:0}.info-main-nav a{white-space:normal}}
