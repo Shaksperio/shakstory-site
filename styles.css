@@ -133,3 +133,102 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #DA
 .hero .btn-outline:hover,.btn-outline:hover{background:#E8F5F9;color:#203B4C}
 .final-cta .btn-dark-outline{border-color:#DBE8F1;color:#FFF;background:transparent}
 .final-cta .btn-dark-outline:hover{background:rgba(255,255,255,.12)}
+
+
+/* EXPERIMENTO VISUAL SPINREWRITER — inspiração na captura enviada,
+   sem copiar marca, texto ou métricas de terceiros.
+   Base estrutural Shakstory 2557c1d preservada. */
+:root{
+ --spin-navy:#101D52;
+ --spin-navy-mid:#173B72;
+ --spin-blue:#3368B7;
+ --spin-sky:#EEF3FF;
+ --spin-white:#FFFFFF;
+ --spin-ink:#1F2937;
+ --spin-yellow:#FFDD24;
+ --spin-orange:#FFA500;
+ --spin-gold-shadow:rgba(171,111,0,.32);
+}
+html,body{background:var(--spin-sky);color:var(--spin-ink)}
+.site-header{background:rgba(255,255,255,.97);border-color:#DCE5F2}
+.announcement{background:var(--spin-blue);color:#FFF}
+.brand-mark,.footer-brand .brand-mark{background:var(--spin-navy)}
+.hero{background:linear-gradient(180deg,#EEF3FF 0%,#F9FBFF 100%)}
+.hero h1,.section-heading h2,.faq-layout h2,.price-card h3,.audience-card h3,.feature-card h3{color:#202735}
+.hero h1 em{color:#29599C}
+p,.hero-lead,.section-heading p,.audience-card p,.feature-card p,.step p,.price-card p,.faq-items details p,.preview-grid p{color:#49566A}
+.eyebrow,.plan-label,.feature-arrow,.text-link{color:#245BA2}
+.audience-band,.preview-section,.faq-section{background:#E9F0FE}
+.feature-section,.pricing-section{background:#F7F9FF}
+.audience-card,.feature-card,.step,.price-card{background:#FFF;border-color:#D8E2EF}
+.feature-icon{background:#E3EAFD;color:#315EA6}
+.feature-icon.blue{background:#DCEAFF;color:#245BA2}
+.spotlight{background:radial-gradient(ellipse at 28% 78%,#1C4C83 0%,#152A64 64%,#101D52 100%)}
+.spotlight h2,.final-cta h2{color:#FFF}
+.spotlight h2 em,.final-cta h2 em{color:var(--spin-yellow)}
+.eyebrow.light,.spotlight-points .icon{color:#FFDA37}
+.spotlight-copy>p,.spotlight-points,.spotlight-points span{color:#E9F0FF}
+.final-cta{background:radial-gradient(ellipse at 36% 75%,#1B4E85,#152A64 60%,#101D52 100%)}
+.final-cta p{color:#ECF2FF}
+.site-footer{background:#3568B7;color:#FFF}
+.footer-links a,.footer-main p,.footer-bottom{color:#E9F0FD}
+.price-card.featured{background:#FFF;border:2px solid #F4B521;box-shadow:0 14px 35px rgba(19,42,100,.11)}
+.popular{background:#FFE343;color:#222735}
+.faq-items summary{color:#202735}
+.price-card li .icon,.faq-items summary:after{color:#315EA6}
+
+/* Todos os CTAs comerciais, inclusive os três checkouts Ton,
+   recebem o botão amarelo-ouro → laranja da referência enviada. */
+.nav-cta,
+.hero .btn-primary,
+.btn-primary,
+.spotlight .btn-light,
+.price-card .btn-plan,
+.price-card.featured .btn-plan,
+.btn-plan,
+.final-cta .btn-white{
+ background:linear-gradient(180deg,#FFE72C 0%,#FFCB08 46%,#FFA30A 100%);
+ color:#1C2734;
+ border:1px solid #EAAA12;
+ border-top-color:#FFE96D;
+ border-radius:999px;
+ box-shadow:0 8px 0 rgba(120,77,7,.13),0 14px 24px var(--spin-gold-shadow);
+ font-weight:800;
+ text-shadow:none;
+}
+.nav-cta:hover,
+.hero .btn-primary:hover,
+.btn-primary:hover,
+.spotlight .btn-light:hover,
+.price-card .btn-plan:hover,
+.price-card.featured .btn-plan:hover,
+.btn-plan:hover,
+.final-cta .btn-white:hover{
+ background:linear-gradient(180deg,#FFF167 0%,#FFDA25 52%,#FFB114 100%);
+ color:#182330;
+ border-color:#DDA00D;
+ box-shadow:0 7px 0 rgba(120,77,7,.1),0 12px 25px rgba(171,111,0,.34);
+}
+.nav-cta:active,
+.hero .btn-primary:active,
+.btn-primary:active,
+.spotlight .btn-light:active,
+.price-card .btn-plan:active,
+.btn-plan:active,
+.final-cta .btn-white:active{
+ background:linear-gradient(180deg,#F5C21E,#FFA508);
+ box-shadow:0 2px 7px rgba(120,77,7,.2);
+ transform:translateY(2px);
+}
+.hero .btn-outline,.btn-outline{background:#FFF;border:1.5px solid #A7B8D7;color:#244772;box-shadow:none}
+.hero .btn-outline:hover,.btn-outline:hover{background:#EAF1FC;color:#1A3E71}
+.final-cta .btn-dark-outline{background:transparent;color:#FFF;border-color:#CEDDFC;box-shadow:none}
+.final-cta .btn-dark-outline:hover{background:rgba(255,255,255,.11);color:#FFF}
+:focus-visible{outline:3px solid #FFCD0B;outline-offset:4px}
+@media(max-width:850px){
+ .main-nav{background:#FFF;border-bottom-color:#DBE5F5}
+ .hero{background:linear-gradient(180deg,#EEF3FF,#F9FBFF)}
+}
+@media(prefers-reduced-motion:reduce){
+ .nav-cta,.btn-primary,.btn-plan,.spotlight .btn-light,.final-cta .btn-white{transition:none}
+}
