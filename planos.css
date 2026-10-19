@@ -1,0 +1,47 @@
+/* Páginas comerciais dos planos; isoladas do aplicativo. */
+.plan-hero{background:linear-gradient(145deg,#101D52,#1B467E);color:#fff;padding:78px 0 90px}
+.plan-hero .eyebrow{color:#FFDF51}.plan-hero h1{font-size:clamp(2.9rem,6vw,5.4rem);max-width:780px;margin:22px 0}
+.plan-hero p{color:#E3EBFA;max-width:680px;font-size:1.13rem;line-height:1.85}
+.plan-hero .actions{gap:12px}.plan-hero .btn{background:#fff;color:#1A3965}
+.plan-hero .btn:hover{background:#EDF4FF}
+.plan-container{width:min(1050px,calc(100% - 38px));margin:auto}
+.plan-eyebrow{color:#FFD947;font-weight:800;letter-spacing:.15em;text-transform:uppercase;font-size:.77rem}
+.plan-eyebrow.blue{color:#315DAB}
+.plan-summary{padding:82px 0;background:#F7F9FF}
+.plan-head{max-width:720px;margin:0 auto 42px;text-align:center}
+.plan-head h2{margin:16px 0;font-size:clamp(2rem,4vw,3.5rem)}
+.plan-head p{margin:auto}
+.plan-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.plan-benefit{background:#fff;border:1px solid #DAE3F3;border-radius:20px;padding:29px}
+.plan-benefit .plan-ico{display:grid;place-items:center;width:54px;height:54px;border-radius:15px;background:#E9F0FF;color:#2858A2;font-size:1.6rem;margin-bottom:20px}
+.plan-benefit h3{font-size:1.4rem;color:#202735}
+.plan-benefit p{font-size:.91rem;color:#45556A}
+.plan-details{background:#EAF1FF;padding:86px 0}
+.plan-details-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.plan-details h2{font-size:clamp(2rem,4vw,3.4rem)}
+.plan-details p,.plan-details li{color:#405169}
+.plan-checklist{list-style:none;padding:0;display:grid;gap:17px}
+.plan-checklist li{padding:16px 18px;background:#fff;border:1px solid #D8E3F6;border-radius:13px;line-height:1.6}
+.plan-checklist li:before{content:'✓';font-weight:900;color:#225B9C;margin-right:10px}
+.plan-note{border-left:4px solid #E7BA22;background:#FFF9E0;border-radius:6px;padding:16px 20px;color:#423E30;font-size:.88rem}
+.plan-compare{padding:76px 0;background:#F8FAFE}
+.plan-compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan-mini{display:flex;flex-direction:column;background:#fff;border:1px solid #DAE3F3;padding:24px;border-radius:15px;gap:12px}
+.plan-mini.current{border:2px solid #E0B128}
+.plan-mini strong{font:700 1.8rem 'Playfair Display',Georgia,serif}
+.plan-mini p{font-size:.88rem;flex:1}
+.plan-mini a{color:#245AA0;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.plan-convert{background:radial-gradient(ellipse at 23% 77%,#205289,#152A64 63%,#101D52 100%);color:#fff;text-align:center;padding:92px 0}
+.plan-convert h2{font-size:clamp(2.15rem,5vw,3.9rem);color:#fff;margin:16px auto;max-width:800px}
+.plan-convert>div>p{margin:0 auto;color:#E8F0FF;max-width:760px}
+.plan-convert .actions{justify-content:center}
+.plan-convert .btn-gold{display:inline-flex;justify-content:center;align-items:center;text-align:center;min-height:58px;padding:16px 30px;border-radius:999px;background:linear-gradient(180deg,#FFE72C,#FFCB08 46%,#FFA30A);border:1px solid #EAAA12;color:#182733;font-weight:800;box-shadow:0 8px 0 rgba(120,77,7,.12),0 14px 24px rgba(171,111,0,.25)}
+.plan-convert .btn-gold:hover{background:linear-gradient(180deg,#FFF167,#FFDA25 52%,#FFB114)}
+.plan-convert .btn-outline-white{display:inline-flex;align-items:center;justify-content:center;border:1px solid #D7E7FF;color:#fff;border-radius:999px;min-height:58px;padding:16px 30px;font-weight:800}
+.plan-convert .btn-outline-white:hover{background:#FFFFFF20}
+.plan-convert .terms{color:#DDE8FC;margin:29px auto 0;font-size:.82rem;max-width:680px;text-align:left;background:#ffffff0f;border:1px solid #ffffff30;padding:22px;border-radius:16px}
+.plan-convert .terms strong{color:#fff}
+.plan-footer{padding:35px 0;background:#3568B7;color:#fff}
+.plan-footer .plan-container{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.plan-footer a{text-decoration:underline}
+@media(max-width:740px){.plan-hero{padding:57px 0}.plan-summary,.plan-details,.plan-compare,.plan-convert{padding:60px 0}.plan-benefits,.plan-compare-grid,.plan-details-layout{grid-template-columns:1fr;gap:14px}.plan-hero .actions,.plan-convert .actions{display:grid}.plan-convert .btn-gold,.plan-convert .btn-outline-white{width:100%}.plan-footer .plan-container{flex-direction:column;text-align:center}}
