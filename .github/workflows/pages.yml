@@ -3,13 +3,16 @@ on:
   push:
     branches: [turbo]
   workflow_dispatch:
+
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+
 concurrency:
   group: commercial-pages
   cancel-in-progress: true
+
 jobs:
   deploy:
     environment:
@@ -19,12 +22,55 @@ jobs:
     steps:
       - name: Obter arquivos
         uses: actions/checkout@v4
+
+      - name: Extrair e verificar as imagens do carrossel
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          import zipfile
+
+          archive = Path("shakstory-banner-imagens-para-github.zip")
+          names = ("evolucao-pena.png", "evolucao-maquina.png", "evolucao-celular.png")
+          outdir = Path("assets")
+          outdir.mkdir(exist_ok=True)
+          if not archive.is_file():
+              raise SystemExit("Arquivo ZIP das imagens nao encontrado")
+          with zipfile.ZipFile(archive) as z:
+              for name in names:
+                  source = f"assets/{name}"
+                  data = z.read(source)
+                  if len(data) < 33 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                      raise SystemExit(f"PNG invalido: {source}")
+                  width, height = struct.unpack(">II", data[16:24])
+                  if not (300 <= width <= 2400 and 300 <= height <= 3200):
+                      raise SystemExit(f"Dimensoes inesperadas: {source}")
+                  if data[25] != 6:
+                      raise SystemExit(f"Imagem sem canal alpha RGBA: {source}")
+                  (outdir / name).write_bytes(data)
+                  print(f"Imagem OK: {source} ({width}x{height}, {len(data)} bytes)")
+          PY
+
+      - name: Guardar imagens organizadas na branch turbo
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/evolucao-pena.png assets/evolucao-maquina.png assets/evolucao-celular.png
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(site): extrair PNGs transparentes do banner historico"
+            git push origin HEAD:turbo
+          fi
+
       - name: Configurar Pages
         uses: actions/configure-pages@v5
-      - name: Enviar artefato estático
+
+      - name: Enviar artefato estatico
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4
