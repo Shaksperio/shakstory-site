@@ -63,6 +63,44 @@ jobs:
             git push origin HEAD:turbo
           fi
 
+      - name: Extrair animacoes originais enviadas pelo autor
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          bundle = Path("shakstory-gifs-originais-para-github.zip")
+          expected = (
+              "assets/evolucao-pena.gif",
+              "assets/evolucao-maquina.gif",
+              "assets/evolucao-celular.gif",
+          )
+          if not bundle.exists():
+              print("GIFs ainda nao foram enviados ao repositorio; mantendo fallback PNG.")
+          else:
+              with ZipFile(bundle) as archive:
+                  for name in expected:
+                      data = archive.read(name)
+                      if not data.startswith((b"GIF89a", b"GIF87a")) or len(data) < 100:
+                          raise SystemExit(f"GIF invalido: {name}")
+                      dest = Path(name)
+                      dest.parent.mkdir(parents=True, exist_ok=True)
+                      dest.write_bytes(data)
+                      print(f"GIF restaurado: {name}, {len(data)} bytes")
+          PY
+
+      - name: Versionar animacoes extraidas
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f assets/evolucao-pena.gif assets/evolucao-maquina.gif assets/evolucao-celular.gif 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(site): adicionar os GIFs originais do carrossel"
+            git push origin HEAD:turbo
+          fi
+
       - name: Configurar Pages
         uses: actions/configure-pages@v5
 
