@@ -88,3 +88,26 @@ body{background:var(--bg-main);color:var(--text-main)}
 .brand-mark{background:#114B4B}
 ::selection{background:var(--accent-highlight);color:#163535}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#B48A42}
+
+
+/* Ajuste de contraste comercial v2 — base visual 2557c1d preservada */
+.hero{background:linear-gradient(160deg,#E5F5F1 0%,#EEF8F6 67%,#F7FBF9 100%)}
+.hero .btn-primary,.nav-cta{background:#53C3A6;color:#103C36}
+.hero .btn-primary:hover,.nav-cta:hover{background:#43AE92;color:#103C36}
+.hero .btn-outline{background:#FFF;border:2px solid #53B7A0;color:#114B4B}
+.audience-band,.preview-section,.faq-section{background:#E0F1ED}
+.feature-section{background:#F7FBF9}
+.pricing-section{background:#EAF6F2}
+.price-card{background:#FFF}
+.price-card.featured{border:2px solid #15927D;background:#F4FCF8}
+.price-card .btn-plan{background:#087869;color:#FFF}
+.price-card .btn-plan:hover{background:#086757}
+.price-card.featured .btn-plan{background:#4BBC9E;color:#0B3430}
+.price-card.featured .btn-plan:hover{background:#35A98B}
+.popular{background:#E6E96A;color:#193D37}
+.final-cta .btn-white{background:#53C3A6;color:#103C36}
+.final-cta .btn-white:hover{background:#43AE92}
+@media(max-width:590px){
+ .hero{background:linear-gradient(160deg,#E5F5F1,#EEF8F6)}
+ .hero .btn-primary,.price-card .btn-plan{box-shadow:0 6px 20px rgba(16,91,79,.16)}
+}
