@@ -1,8 +1,8 @@
 /* Shakstory service worker — gerado no build. Não editar. */
-const VERSION = "q6se40";
+const VERSION = "1wsthkc";
 const SHELL_CACHE = 'shakstory-shell-' + VERSION;
 const RUNTIME_CACHE = 'shakstory-runtime-v1';
-const PRECACHE = ["","assets/html2canvas.esm-B0tyYwQk.js","assets/index-BfqLYvRv.css","assets/index-CaQtC3pA.js","assets/index.es-DLSVpBEY.js","assets/pdf-fonts-B031VheP.js","assets/purify.es-CYR4BTuT.js","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","manifest.webmanifest","shakstory-icon.svg"];
+const PRECACHE = [""];
 const SCOPE = self.registration.scope;
 const abs = rel => new URL(rel, SCOPE).href;
 const PRECACHE_URLS = PRECACHE.map(abs);
@@ -79,7 +79,7 @@ self.addEventListener('fetch', event => {
     const rel = url.pathname.slice(new URL(SCOPE).pathname.length);
     if (NETWORK_ONLY.some(prefix => rel.indexOf(prefix) === 0)) return;
     if (request.mode === 'navigate') { event.respondWith(navigate(request)); return; }
-    if (rel.indexOf('assets/') === 0 || PRECACHE_URLS.indexOf(url.origin + url.pathname) !== -1) { event.respondWith(cacheFirst(request)); }
+    if (PRECACHE_URLS.indexOf(url.origin + url.pathname) !== -1) { event.respondWith(cacheFirst(request)); return; }
     return;
   }
   if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') event.respondWith(staleWhileRevalidate(request));
