@@ -1,5 +1,5 @@
 /* Shakstory service worker — gerado no build. Não editar. */
-const VERSION = "1wdr9cm";
+const VERSION = "1vrkgzn";
 const SHELL_CACHE = 'shakstory-shell-' + VERSION;
 const RUNTIME_CACHE = 'shakstory-runtime-v1';
 const PRECACHE = [""];
