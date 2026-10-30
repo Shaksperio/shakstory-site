@@ -1,5 +1,5 @@
 /* Shakstory service worker — gerado no build. Não editar. */
-const VERSION = "113pyms";
+const VERSION = "466hub";
 const SHELL_CACHE = 'shakstory-shell-' + VERSION;
 const RUNTIME_CACHE = 'shakstory-runtime-v1';
 const PRECACHE = [""];
